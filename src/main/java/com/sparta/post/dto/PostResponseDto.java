@@ -3,6 +3,8 @@ package com.sparta.post.dto;
 import com.sparta.post.entity.Post;
 import lombok.Getter;
 
+import java.time.LocalDateTime;
+
 @Getter
 public class PostResponseDto {
 
@@ -10,8 +12,9 @@ public class PostResponseDto {
     private String title;
     private String content;
     private String author;
-    private String createdAt; // 글 생성 시간
-    private String modifiedAt; // 글 수정 시간
+    private LocalDateTime createdAt;
+    private LocalDateTime modifiedAt;
+
 
 
     public PostResponseDto(Post post) {
