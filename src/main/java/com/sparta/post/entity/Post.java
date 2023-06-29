@@ -33,17 +33,19 @@ public class Post extends Timestamped {
 
     //게시글 추가 생성자
     public Post(PostRequestDto requestDto) {
+
         this.title = requestDto.getTitle();
         this.author = requestDto.getAuthor();
         this.content = requestDto.getContent();
         this.password = requestDto.getPassword();
     }
 
-    //게시글 수정 생성자
+    //게시글 수정 메서드
     public void update(PostRequestDto requestDto) {
         this.title = requestDto.getTitle();
         this.author = requestDto.getAuthor();
         this.content = requestDto.getContent();
         this.password = requestDto.getPassword();
     }
+
 }

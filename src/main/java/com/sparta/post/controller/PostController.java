@@ -35,7 +35,7 @@ import java.util.*;
     - 입력받은 키워드가 포함된 글들 전부 가져오기 -- 성공
  */
 
-@RestController
+@RestController //--> 컨트롤러
 @RequestMapping("/api")
 public class PostController {
 
@@ -53,7 +53,7 @@ public class PostController {
     }
 
     //게시글 전체 조회
-    //작성 날짜 기준 내림차순으로 정렬하기를 구현하지 못함. -->Auditing 기능으로 구현함
+    //작성 날짜 기준 내림차순으로 정렬하기를 구현하지 못함. --> Auditing 기능으로 구현함
     @GetMapping("/posts")
     public List<PostResponseDto> getPosts() {
         return postService.getPosts();

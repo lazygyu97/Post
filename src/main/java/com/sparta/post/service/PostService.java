@@ -6,8 +6,7 @@ import com.sparta.post.entity.Post;
 import com.sparta.post.repository.PostRepository;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
+
 
 import java.util.List;
 import java.util.Objects;
@@ -20,7 +19,7 @@ public class PostService {
         this.postRepository = postRepository;
     }
 
-    public PostResponseDto createPost(PostRequestDto postRequestDto) {
+    public PostResponseDto createPost(PostRequestDto postRequestDto) { //가독성
 
         Post post = new Post(postRequestDto);
 
@@ -66,14 +65,11 @@ public class PostService {
     }
 
     public List<PostResponseDto> findPost(String keyword) {
-
         if (!postRepository.findAllByContentContainsOrderByModifiedAtDesc(keyword).isEmpty()) {
             return postRepository.findAllByContentContainsOrderByModifiedAtDesc(keyword).stream().map(PostResponseDto::new).toList();
         } else {
             throw new IllegalArgumentException(keyword + "가 포함되는 게시글이 없습니다");
         }
-
-
     }
 
     private Post checkPost(Long id) {
